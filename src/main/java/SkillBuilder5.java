@@ -18,7 +18,14 @@ public class SkillBuilder5
     public static double[] prefixAverage(double[] data)
     {
         //TODO: replace this line with your code.
-        return null;
+        double sum = 0.0;
+        double[] average = new double[data.length];
+        for(int index=0; index < data.length; index++){
+            sum += data[index];
+            average[index] = sum / (index+1);
+        }
+
+        return average;
     }
 
     /**
@@ -32,7 +39,16 @@ public class SkillBuilder5
     public static int  indexOf(int searchValue, int[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+        int result = 0;
+        for(int index=0; index<anArray.length; index++){
+            if(searchValue == anArray[index]){
+                result = index;
+                break;
+            }else{
+                result = -1;
+            }
+        }
+        return result;
     }
 
     /**
@@ -46,7 +62,16 @@ public class SkillBuilder5
     public static int  indexOf(String s, String[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+        int result = 0;
+        for(int index=0; index<anArray.length; index++){
+            if(s == anArray[index]){
+                result = index;
+                break;
+            }else{
+                result = -1;
+            }
+        }
+        return result;
     }
 
     /**
@@ -59,7 +84,25 @@ public class SkillBuilder5
     public static String[] remove(String s, String[] anArray)
     {
         // add your code here
-        return null;
+
+       String[] sRemoved = new String[anArray.length-1];
+       int indexOfSRemoved = 0;
+       int a = indexOfSRemoved;
+
+        for(int index=0; index<anArray.length; index++){
+            if(s != anArray[index]){
+                sRemoved[indexOfSRemoved++] = anArray[index];
+                a++;
+            }
+        }
+        int indexOfNullRemoved = 0;
+        String[] nullRemoved = new String[a];
+        for(int index=0; index<sRemoved.length; index++){
+            if(sRemoved[index] != null){
+                nullRemoved[indexOfNullRemoved++] = sRemoved[index];
+            }
+        }
+        return nullRemoved;
     }
 
     /**
@@ -68,6 +111,18 @@ public class SkillBuilder5
      */
     public static void reverse(int[] anArray)
     {
+
         // add your code here
+
+        int indexFromLeft = 0;
+        int indexFromRight = anArray.length-1;
+        while(indexFromLeft < indexFromRight){
+            int reversed = anArray[indexFromLeft];
+            anArray[indexFromLeft] = anArray[indexFromRight];
+            anArray[indexFromRight] = reversed;
+            indexFromLeft++;
+            indexFromRight--;
+
+        }
     }
 }
